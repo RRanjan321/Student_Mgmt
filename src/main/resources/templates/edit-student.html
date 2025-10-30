@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Student</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            padding: 32px 40px 40px 40px;
+        }
+        h1 {
+            color: #2d6cdf;
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 6px;
+            color: #2d6cdf;
+            font-weight: 500;
+        }
+        input[type="text"], input[type="number"] {
+            padding: 8px;
+            margin-bottom: 18px;
+            border: 1px solid #b6c6e3;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        button {
+            background: #2d6cdf;
+            color: #fff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            font-size: 1.08em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #1a4e9b;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 18px;
+            color: #2d6cdf;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+            color: #1a4e9b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Edit Student</h1>
+        <form th:action="@{'/students/update/' + ${student.id}}" method="post">
+            <label>Name:</label>
+            <input type="text" name="name" th:value="${student.name}" required>
+            <label>Age:</label>
+            <input type="number" name="age" th:value="${student.age}" required>
+            <label>Sex:</label>
+            <input type="text" name="sex" th:value="${student.sex}" required>
+            <label>Address:</label>
+            <input type="text" name="address" th:value="${student.address}" required>
+            <button type="submit">Update</button>
+        </form>
+        <a href="/students" class="back-link">Back to List</a>
+    </div>
+</body>
+</html>
