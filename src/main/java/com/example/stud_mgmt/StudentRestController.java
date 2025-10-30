@@ -1,11 +1,13 @@
 package com.example.stud_mgmt;
-
+// Ye controller layer sahi hai, clean and separation of concers, baki StudentController kuchh samjh nahi aaya ki kiya hai 
+// wahan pe
 import org.springframework.web.bind.annotation.*;
 import java.util.*;
 
 @RestController
 @RequestMapping("/api/students")
 public class StudentRestController {
+    @Autowired //repository operations karne ke liye bean inject karna padega n.
     private final StudentRepository studentRepository;
 
     public StudentRestController(StudentRepository studentRepository) {
