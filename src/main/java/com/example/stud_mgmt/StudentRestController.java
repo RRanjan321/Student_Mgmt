@@ -6,6 +6,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/api/students")
 public class StudentRestController {
+    @Autowired
     private final StudentRepository studentRepository;
 
     public StudentRestController(StudentRepository studentRepository) {
